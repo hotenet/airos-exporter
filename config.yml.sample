@@ -1,0 +1,8 @@
+log:
+  level: debug
+exporter:
+  listen: ":7539"
+  path: /metrics
+ubnt:
+  username: admin
+  password: 'password'
