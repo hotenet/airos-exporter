@@ -31,11 +31,11 @@ type metricSet struct {
 	LocalATPC         prometheus.Gauge
 
 	CnxInfo      *prometheus.GaugeVec
-	CnxRxBytes   *prometheus.GaugeVec
-	CnxRxPackets *prometheus.GaugeVec
+	CnxRxBytes   *prometheus.CounterVec
+	CnxRxPackets *prometheus.CounterVec
 	CnxRxCap     *prometheus.GaugeVec
-	CnxTxBytes   *prometheus.GaugeVec
-	CnxTxPackets *prometheus.GaugeVec
+	CnxTxBytes   *prometheus.CounterVec
+	CnxTxPackets *prometheus.CounterVec
 	CnxTxLatency *prometheus.GaugeVec
 	CnxTxCap     *prometheus.GaugeVec
 
@@ -152,7 +152,7 @@ func NewMetricSet(namespace string) *metricSet {
 		),
 		LocalDFS: prometheus.NewGauge(
 			prometheus.GaugeOpts{
-				Namespace: namespace, Subsystem: "local", Name: "dfs", Help: "Dynamic Frequency Scanning status. (1: active, 2: inactive)",
+				Namespace: namespace, Subsystem: "local", Name: "dfs", Help: "Dynamic Frequency Scanning status. (0: inactive, 1: active)",
 			},
 		),
 		LocalATPC: prometheus.NewGauge(
@@ -167,23 +167,23 @@ func NewMetricSet(namespace string) *metricSet {
 				Namespace: namespace, Subsystem: "cnx", Name: "info", Help: "Connected peer information",
 			}, []string{"index", "mac", "lastip", "name", "device_id"},
 		),
-		CnxRxBytes: prometheus.NewGaugeVec(
-			prometheus.GaugeOpts{
+		CnxRxBytes: prometheus.NewCounterVec(
+			prometheus.CounterOpts{
 				Namespace: namespace, Subsystem: "cnx", Name: "rx_bytes", Help: "Received data on the current connection (in Bytes)",
 			}, []string{"index"},
 		),
-		CnxRxPackets: prometheus.NewGaugeVec(
-			prometheus.GaugeOpts{
+		CnxRxPackets: prometheus.NewCounterVec(
+			prometheus.CounterOpts{
 				Namespace: namespace, Subsystem: "cnx", Name: "rx_packets", Help: "Received data on the current connection (in Bytes)",
 			}, []string{"index"},
 		),
-		CnxTxBytes: prometheus.NewGaugeVec(
-			prometheus.GaugeOpts{
+		CnxTxBytes: prometheus.NewCounterVec(
+			prometheus.CounterOpts{
 				Namespace: namespace, Subsystem: "cnx", Name: "tx_bytes", Help: "Transmitted data on the current connection (in Bytes)",
 			}, []string{"index"},
 		),
-		CnxTxPackets: prometheus.NewGaugeVec(
-			prometheus.GaugeOpts{
+		CnxTxPackets: prometheus.NewCounterVec(
+			prometheus.CounterOpts{
 				Namespace: namespace, Subsystem: "cnx", Name: "tx_packets", Help: "Transmitted packets on the current connection (in Bytes)",
 			}, []string{"index"},
 		),
@@ -210,7 +210,7 @@ func NewMetricSet(namespace string) *metricSet {
 		),
 		CnxPeerTxPower: prometheus.NewGaugeVec(
 			prometheus.GaugeOpts{
-				Namespace: namespace, Subsystem: "cnx", Name: "peer_tx_power", Help: "Transmission power for peer on the current connection (in dBm)",
+				Namespace: namespace, Subsystem: "cnx", Name: "peer_tx_power_dbm", Help: "Transmission power for peer on the current connection (in dBm)",
 			}, []string{"index", "peer"},
 		),
 		CnxPeerChainSignal: prometheus.NewGaugeVec(

@@ -52,27 +52,27 @@ Flags:
 
 ## Output
 
-```metrics
+```
 # HELP ubnt_cnx_info Connected peer information
 # TYPE ubnt_cnx_info gauge
 ubnt_cnx_info{device_id="c9419699cbe8dbe77c16c51b40b85357",index="0",lastip="192.168.2.7",mac="F4:E2:C6:86:9F:0C",name="B1E"} 1
 
 # HELP ubnt_cnx_peer_base_signal_dbm Signal strength for peer on the current connection (in dBm)
 # TYPE ubnt_cnx_peer_base_signal_dbm gauge
-ubnt_cnx_peer_base_signal_dbm{index="0",peer="local"} -71
-ubnt_cnx_peer_base_signal_dbm{index="0",peer="remote"} -70
+ubnt_cnx_peer_base_signal_dbm{index="0",peer="local"} -46
+ubnt_cnx_peer_base_signal_dbm{index="0",peer="remote"} -45
 
 # HELP ubnt_cnx_peer_chain_signal_dbm Signal strength for peer and chain on the current connection (in dBm)
 # TYPE ubnt_cnx_peer_chain_signal_dbm gauge
-ubnt_cnx_peer_chain_signal_dbm{chain="Chain 0",index="0",peer="local"} -74
-ubnt_cnx_peer_chain_signal_dbm{chain="Chain 0",index="0",peer="remote"} -75
-ubnt_cnx_peer_chain_signal_dbm{chain="Chain 1",index="0",peer="local"} -75
-ubnt_cnx_peer_chain_signal_dbm{chain="Chain 1",index="0",peer="remote"} -71
+ubnt_cnx_peer_chain_signal_dbm{chain="Chain 0",index="0",peer="local"} -47
+ubnt_cnx_peer_chain_signal_dbm{chain="Chain 0",index="0",peer="remote"} -46
+ubnt_cnx_peer_chain_signal_dbm{chain="Chain 1",index="0",peer="local"} -52
+ubnt_cnx_peer_chain_signal_dbm{chain="Chain 1",index="0",peer="remote"} -51
 
 # HELP ubnt_cnx_peer_cinr_dbm Carrier to Interference + Noise Ratio (CINR) for peer on the current connection (in dBm, requires AirMax)
 # TYPE ubnt_cnx_peer_cinr_dbm gauge
-ubnt_cnx_peer_cinr_dbm{index="0",peer="local"} 26
-ubnt_cnx_peer_cinr_dbm{index="0",peer="remote"} 26
+ubnt_cnx_peer_cinr_dbm{index="0",peer="local"} 37
+ubnt_cnx_peer_cinr_dbm{index="0",peer="remote"} 35
 
 # HELP ubnt_cnx_peer_distance Distance to peer on the current connection
 # TYPE ubnt_cnx_peer_distance gauge
@@ -81,56 +81,56 @@ ubnt_cnx_peer_distance{index="0",peer="remote"} 1
 
 # HELP ubnt_cnx_peer_interference_dbm Interference + Noise level for peer on the current connection (in dBm, requires AirMax)
 # TYPE ubnt_cnx_peer_interference_dbm gauge
-ubnt_cnx_peer_interference_dbm{index="0",peer="local"} -100
-ubnt_cnx_peer_interference_dbm{index="0",peer="remote"} -99
+ubnt_cnx_peer_interference_dbm{index="0",peer="local"} -83
+ubnt_cnx_peer_interference_dbm{index="0",peer="remote"} -80
 
 # HELP ubnt_cnx_peer_link_info Radio link information for peer on the current connection
 # TYPE ubnt_cnx_peer_link_info gauge
-ubnt_cnx_peer_link_info{coding="5/6",index="0",modulation="64QAM",multiplexer="MIMO",multiplier="x6",peer="local"} 1
-ubnt_cnx_peer_link_info{coding="5/6",index="0",modulation="64QAM",multiplexer="MIMO",multiplier="x6",peer="remote"} 1
+ubnt_cnx_peer_link_info{coding="5/6",index="0",modulation="256QAM",multiplexer="MIMO",multiplier="x8",peer="local"} 1
+ubnt_cnx_peer_link_info{coding="5/6",index="0",modulation="256QAM",multiplexer="MIMO",multiplier="x8",peer="remote"} 1
 
 # HELP ubnt_cnx_peer_noise_floor_dbm Noise floor for peer on the current connection (in dBm)
 # TYPE ubnt_cnx_peer_noise_floor_dbm gauge
-ubnt_cnx_peer_noise_floor_dbm{index="0",peer="local"} -86
-ubnt_cnx_peer_noise_floor_dbm{index="0",peer="remote"} -89
+ubnt_cnx_peer_noise_floor_dbm{index="0",peer="local"} -85
+ubnt_cnx_peer_noise_floor_dbm{index="0",peer="remote"} -88
 
 # HELP ubnt_cnx_peer_signal_dbm Signal strength for peer on the current connection (in dBm, requires AirMax)
 # TYPE ubnt_cnx_peer_signal_dbm gauge
-ubnt_cnx_peer_signal_dbm{index="0",peer="local"} -74
-ubnt_cnx_peer_signal_dbm{index="0",peer="remote"} -73
+ubnt_cnx_peer_signal_dbm{index="0",peer="local"} -48
+ubnt_cnx_peer_signal_dbm{index="0",peer="remote"} -49
 
-# HELP ubnt_cnx_peer_tx_power Transmission power for peer on the current connection (in dBm)
-# TYPE ubnt_cnx_peer_tx_power gauge
-ubnt_cnx_peer_tx_power{index="0",peer="local"} -4
-ubnt_cnx_peer_tx_power{index="0",peer="remote"} -4
+# HELP ubnt_cnx_peer_tx_power_dbm Transmission power for peer on the current connection (in dBm)
+# TYPE ubnt_cnx_peer_tx_power_dbm gauge
+ubnt_cnx_peer_tx_power_dbm{index="0",peer="local"} -4
+ubnt_cnx_peer_tx_power_dbm{index="0",peer="remote"} -4
 
 # HELP ubnt_cnx_rx_bytes Received data on the current connection (in Bytes)
-# TYPE ubnt_cnx_rx_bytes gauge
-ubnt_cnx_rx_bytes{index="0"} 3.4032055e+07
+# TYPE ubnt_cnx_rx_bytes counter
+ubnt_cnx_rx_bytes{index="0"} 3.1656288e+07
 
 # HELP ubnt_cnx_rx_capacity_bps Reception capacity on the current connection (in bit/s, requires AirMax)
 # TYPE ubnt_cnx_rx_capacity_bps gauge
-ubnt_cnx_rx_capacity_bps{index="0"} 1.880064e+08
+ubnt_cnx_rx_capacity_bps{index="0"} 3.096576e+08
 
 # HELP ubnt_cnx_rx_packets Received data on the current connection (in Bytes)
-# TYPE ubnt_cnx_rx_packets gauge
-ubnt_cnx_rx_packets{index="0"} 72139
+# TYPE ubnt_cnx_rx_packets counter
+ubnt_cnx_rx_packets{index="0"} 38019
 
 # HELP ubnt_cnx_tx_bytes Transmitted data on the current connection (in Bytes)
-# TYPE ubnt_cnx_tx_bytes gauge
-ubnt_cnx_tx_bytes{index="0"} 1.23416045e+08
+# TYPE ubnt_cnx_tx_bytes counter
+ubnt_cnx_tx_bytes{index="0"} 4.7931777e+07
 
 # HELP ubnt_cnx_tx_capacity_bps Transmission capacity on the current connection, (in bit/s, requires AirMax)
 # TYPE ubnt_cnx_tx_capacity_bps gauge
-ubnt_cnx_tx_capacity_bps{index="0"} 2.48832e+08
+ubnt_cnx_tx_capacity_bps{index="0"} 3.096576e+08
 
 # HELP ubnt_cnx_tx_latency_ms Transmission latency on the current connection (in millisecond)
 # TYPE ubnt_cnx_tx_latency_ms gauge
 ubnt_cnx_tx_latency_ms{index="0"} 0
 
 # HELP ubnt_cnx_tx_packets Transmitted packets on the current connection (in Bytes)
-# TYPE ubnt_cnx_tx_packets gauge
-ubnt_cnx_tx_packets{index="0"} 301377
+# TYPE ubnt_cnx_tx_packets counter
+ubnt_cnx_tx_packets{index="0"} 119204
 
 # HELP ubnt_config_info Various settings
 # TYPE ubnt_config_info gauge
@@ -172,7 +172,7 @@ ubnt_local_channel_mhz 5200
 # TYPE ubnt_local_connections gauge
 ubnt_local_connections 1
 
-# HELP ubnt_local_dfs Dynamic Frequency Scanning status. (1: active, 2: inactive)
+# HELP ubnt_local_dfs Dynamic Frequency Scanning status. (0: inactive, 1: active)
 # TYPE ubnt_local_dfs gauge
 ubnt_local_dfs 0
 
@@ -182,7 +182,7 @@ ubnt_local_info{essid="b1r",ieeemode="11ACVHT40",mac="F4:E2:C6:86:9E:B0",mode="a
 
 # HELP ubnt_local_noise_floor_dbm Noise floor (in dBi)
 # TYPE ubnt_local_noise_floor_dbm gauge
-ubnt_local_noise_floor_dbm -86
+ubnt_local_noise_floor_dbm -85
 
 # HELP ubnt_scrape_error 1 when error occurred while fetching device data
 # TYPE ubnt_scrape_error gauge
@@ -190,7 +190,7 @@ ubnt_scrape_error 0
 
 # HELP ubnt_sys_cpu_percent CPU usage (in percentage)
 # TYPE ubnt_sys_cpu_percent gauge
-ubnt_sys_cpu_percent 2.020202
+ubnt_sys_cpu_percent 3.960396
 
 # HELP ubnt_sys_host_info Information about device
 # TYPE ubnt_sys_host_info gauge
@@ -198,29 +198,29 @@ ubnt_sys_host_info{id="86721c212591f31cba1e70786d4c281e",model="NanoStation 5AC"
 
 # HELP ubnt_sys_load Load average
 # TYPE ubnt_sys_load gauge
-ubnt_sys_load 0.022461
+ubnt_sys_load 0
 
 # HELP ubnt_sys_localtime Internal time (seconds since Epoch)
 # TYPE ubnt_sys_localtime gauge
-ubnt_sys_localtime 1.627072274e+09
+ubnt_sys_localtime 1.720124407e+09
 
 # HELP ubnt_sys_powertime Time elapsed since device is powered on (in seconds)
 # TYPE ubnt_sys_powertime gauge
-ubnt_sys_powertime 305703
+ubnt_sys_powertime 351110
 
-# HELP ubnt_sys_ram_free_mb Available memory (in Bytes)
-# TYPE ubnt_sys_ram_free_mb gauge
-ubnt_sys_ram_free_mb 2.0926464e+07
+# HELP ubnt_sys_ram_free_bytes Available memory (in Bytes)
+# TYPE ubnt_sys_ram_free_bytes gauge
+ubnt_sys_ram_free_bytes 2.0656128e+07
 
-# HELP ubnt_sys_ram_total_mb Total memory (in Bytes)
-# TYPE ubnt_sys_ram_total_mb gauge
-ubnt_sys_ram_total_mb 6.344704e+07
+# HELP ubnt_sys_ram_total_bytes Total memory (in Bytes)
+# TYPE ubnt_sys_ram_total_bytes gauge
+ubnt_sys_ram_total_bytes 6.344704e+07
 
-# HELP ubnt_sys_ram_used_mb Used memory (in Bytes)
-# TYPE ubnt_sys_ram_used_mb gauge
-ubnt_sys_ram_used_mb 4.2520576e+07
+# HELP ubnt_sys_ram_used_bytes Used memory (in Bytes)
+# TYPE ubnt_sys_ram_used_bytes gauge
+ubnt_sys_ram_used_bytes 4.2790912e+07
 
 # HELP ubnt_sys_uptime Time elapsed since main interface's last (re)initialization (in seconds)
 # TYPE ubnt_sys_uptime gauge
-ubnt_sys_uptime 296840
+ubnt_sys_uptime 342247
 ```

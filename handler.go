@@ -266,10 +266,10 @@ func (h *handler) Update(set *metricSet, t target) {
 		set.CnxPeerDistance.WithLabelValues(key.String(), "remote").Set(value.Get("remote.distance").Float())
 
 		// rx/tx stats
-		set.CnxRxBytes.WithLabelValues(key.String()).Set(value.Get("stats.rx_bytes").Float())
-		set.CnxRxPackets.WithLabelValues(key.String()).Set(value.Get("stats.rx_packets").Float())
-		set.CnxTxBytes.WithLabelValues(key.String()).Set(value.Get("stats.tx_bytes").Float())
-		set.CnxTxPackets.WithLabelValues(key.String()).Set(value.Get("stats.tx_packets").Float())
+		set.CnxRxBytes.WithLabelValues(key.String()).Add(value.Get("stats.rx_bytes").Float())
+		set.CnxRxPackets.WithLabelValues(key.String()).Add(value.Get("stats.rx_packets").Float())
+		set.CnxTxBytes.WithLabelValues(key.String()).Add(value.Get("stats.tx_bytes").Float())
+		set.CnxTxPackets.WithLabelValues(key.String()).Add(value.Get("stats.tx_packets").Float())
 		set.CnxTxLatency.WithLabelValues(key.String()).Set(value.Get("tx_latency").Float())
 
 		// airmax
