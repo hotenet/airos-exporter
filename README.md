@@ -2,7 +2,7 @@
 
 **From github releases**
 
-Find latest suiatable tarball link on the [release page](https://github.com/hotenet/airos-exporter/releases)
+Find latest suitable tarball link on the [release page](https://github.com/hotenet/airos-exporter/releases)
 
 **Using go install**
 
@@ -10,7 +10,7 @@ Find latest suiatable tarball link on the [release page](https://github.com/hote
 
 # Configuration
 
-You can find an documented exemple in the [config.yml.sample](./config.yml.sample) file.
+You can find an documented example in the [config.yml.sample](./config.yml.sample) file.
 
 # Run
 
@@ -28,10 +28,9 @@ Flags:
 
 ## Exporter http parameter
 
-- **host**: Set device hostname. **Required**
+- **address**: Set device address (host:port). **Required**
 - **scheme**: Set protocol used to connect the device (https or http). Default is https.
-- **port**: Set port used to connect the device. Default is 443.
-- **skip-ssl**: When given, skip ssl certificate validation when connecting to the device. Default is false.
+- **skip-ssl**: When given, skip ssl certificate validation when connecting to the device. Default is unset.
 
 ## Prometheus integration
 
