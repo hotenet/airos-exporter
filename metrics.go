@@ -90,17 +90,17 @@ func NewMetricSet(namespace string) *metricSet {
 		),
 		RamTotal: prometheus.NewGauge(
 			prometheus.GaugeOpts{
-				Namespace: namespace, Subsystem: "sys", Name: "ram_total_mb", Help: "Total memory (in Bytes)",
+				Namespace: namespace, Subsystem: "sys", Name: "ram_total_bytes", Help: "Total memory (in Bytes)",
 			},
 		),
 		RamFree: prometheus.NewGauge(
 			prometheus.GaugeOpts{
-				Namespace: namespace, Subsystem: "sys", Name: "ram_free_mb", Help: "Available memory (in Bytes)",
+				Namespace: namespace, Subsystem: "sys", Name: "ram_free_bytes", Help: "Available memory (in Bytes)",
 			},
 		),
 		RamUsed: prometheus.NewGauge(
 			prometheus.GaugeOpts{
-				Namespace: namespace, Subsystem: "sys", Name: "ram_used_mb", Help: "Used memory (in Bytes)",
+				Namespace: namespace, Subsystem: "sys", Name: "ram_used_bytes", Help: "Used memory (in Bytes)",
 			},
 		),
 		CPU: prometheus.NewGauge(
