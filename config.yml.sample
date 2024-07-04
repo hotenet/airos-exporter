@@ -1,8 +1,13 @@
 log:
+  # log level for the exporter: debug, warn, info, error
   level: debug
 exporter:
+  # lsiten string for http server, see address parameter of https://pkg.go.dev/net#Dial for syntax
   listen: ":7539"
+  # serve metrics on given http path
   path: /metrics
 ubnt:
+  # username to connect to devices
   username: admin
+  # password to connect to devices
   password: 'password'
