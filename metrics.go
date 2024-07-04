@@ -70,55 +70,54 @@ func NewMetricSet(namespace string) *metricSet {
 		),
 		UpTime: prometheus.NewGauge(
 			prometheus.GaugeOpts{
-				Namespace: namespace, Subsystem: "sys", Name: "uptime", Help: "Number of seconds since the device's main interface has been (re)initialized",
+				Namespace: namespace, Subsystem: "sys", Name: "uptime", Help: "Time elapsed since main interface's last (re)initialization (in seconds)",
 			},
 		),
 		PowerTime: prometheus.NewGauge(
 			prometheus.GaugeOpts{
-				Namespace: namespace, Subsystem: "sys", Name: "powertime", Help: "Number of seconds since the device's is powered on",
+				Namespace: namespace, Subsystem: "sys", Name: "powertime", Help: "Time elapsed since device is powered on (in seconds)",
 			},
 		),
 		Localtime: prometheus.NewGauge(
 			prometheus.GaugeOpts{
-				Namespace: namespace, Subsystem: "sys", Name: "localtime", Help: "Device's internal time given as seconds since epoch",
+				Namespace: namespace, Subsystem: "sys", Name: "localtime", Help: "Internal time (seconds since Epoch)",
 			},
 		),
 		LoadAvg: prometheus.NewGauge(
 			prometheus.GaugeOpts{
-				Namespace: namespace, Subsystem: "sys", Name: "load", Help: "Device's load average",
+				Namespace: namespace, Subsystem: "sys", Name: "load", Help: "Load average",
 			},
 		),
 		RamTotal: prometheus.NewGauge(
 			prometheus.GaugeOpts{
-				Namespace: namespace, Subsystem: "sys", Name: "ram_total_mb", Help: "Device's total memory in bytes",
+				Namespace: namespace, Subsystem: "sys", Name: "ram_total_mb", Help: "Total memory (in Bytes)",
 			},
 		),
 		RamFree: prometheus.NewGauge(
 			prometheus.GaugeOpts{
-				Namespace: namespace, Subsystem: "sys", Name: "ram_free_mb", Help: "Device's available memory in bytes",
+				Namespace: namespace, Subsystem: "sys", Name: "ram_free_mb", Help: "Available memory (in Bytes)",
 			},
 		),
 		RamUsed: prometheus.NewGauge(
 			prometheus.GaugeOpts{
-				Namespace: namespace, Subsystem: "sys", Name: "ram_used_mb", Help: "Device's available memory in bytes",
+				Namespace: namespace, Subsystem: "sys", Name: "ram_used_mb", Help: "Used memory (in Bytes)",
 			},
 		),
 		CPU: prometheus.NewGauge(
 			prometheus.GaugeOpts{
-				Namespace: namespace, Subsystem: "sys", Name: "cpu_percent", Help: "Device's CPU usage percentage",
+				Namespace: namespace, Subsystem: "sys", Name: "cpu_percent", Help: "CPU usage (in percentage)",
 			},
 		),
 		Config: prometheus.NewGaugeVec(
 			prometheus.GaugeOpts{
-				Namespace: namespace, Subsystem: "config", Name: "info", Help: "Device's settings",
+				Namespace: namespace, Subsystem: "config", Name: "info", Help: "Various settings",
 			}, []string{"setting"},
 		),
 
-
-
+		
 		LocalInfo: prometheus.NewGaugeVec(
 			prometheus.GaugeOpts{
-				Namespace: namespace, Subsystem: "local", Name: "info", Help: "Information about local configuration",
+				Namespace: namespace, Subsystem: "local", Name: "info", Help: "Wireless information",
 			}, []string{"essid", "mode", "ieeemode", "mac", "security"},
 		),
 		LocalCnx: prometheus.NewGauge(
@@ -128,128 +127,127 @@ func NewMetricSet(namespace string) *metricSet {
 		),
 		LocalChannel: prometheus.NewGauge(
 			prometheus.GaugeOpts{
-				Namespace: namespace, Subsystem: "local", Name: "channel_mhz", Help: "Channel frequency in MHz",
+				Namespace: namespace, Subsystem: "local", Name: "channel_mhz", Help: "Channel frequency (in MHz)",
 			},
 		),
 		LocalChanelCenter: prometheus.NewGauge(
 			prometheus.GaugeOpts{
-				Namespace: namespace, Subsystem: "local", Name: "channel_center_mhz", Help: "Channel center frequency in MHz",
+				Namespace: namespace, Subsystem: "local", Name: "channel_center_mhz", Help: "Channel center frequency (in MHz)",
 			},
 		),
 		LocalChannelBw: prometheus.NewGauge(
 			prometheus.GaugeOpts{
-				Namespace: namespace, Subsystem: "local", Name: "channel_bw_mhz", Help: "Channel band width in MHz",
+				Namespace: namespace, Subsystem: "local", Name: "channel_bw_mhz", Help: "Channel band width (in MHz)",
 			},
 		),
 		LocalGain: prometheus.NewGauge(
 			prometheus.GaugeOpts{
-				Namespace: namespace, Subsystem: "local", Name: "antenna_gain_dbi", Help: "Antenna gain in dBi",
+				Namespace: namespace, Subsystem: "local", Name: "antenna_gain_dbi", Help: "Antenna gain (in dBi)",
 			},
 		),
 		LocalNoiseF: prometheus.NewGauge(
 			prometheus.GaugeOpts{
-				Namespace: namespace, Subsystem: "local", Name: "noise_floor_dbm", Help: "Antenna gain in dBi",
+				Namespace: namespace, Subsystem: "local", Name: "noise_floor_dbm", Help: "Noise floor (in dBi)",
 			},
 		),
 		LocalDFS: prometheus.NewGauge(
 			prometheus.GaugeOpts{
-				Namespace: namespace, Subsystem: "local", Name: "dfs", Help: "1 when Dynamic Frequency Scanning is currently active",
+				Namespace: namespace, Subsystem: "local", Name: "dfs", Help: "Dynamic Frequency Scanning status. (1: active, 2: inactive)",
 			},
 		),
 		LocalATPC: prometheus.NewGauge(
 			prometheus.GaugeOpts{
-				Namespace: namespace, Subsystem: "local", Name: "atpc", Help: "Automatic Transmission Power Control status. 0: Disabled, 1: Adjusting, 2: Automatic, 3: Automatic failure, 4: Automatic limit reached",
+				Namespace: namespace, Subsystem: "local", Name: "atpc", Help: "Automatic Transmission Power Control status. (0: Disabled, 1: Adjusting, 2: Automatic, 3: Automatic failure, 4: Automatic limit reached)",
 			},
 		),
 
 
-
 		CnxInfo: prometheus.NewGaugeVec(
 			prometheus.GaugeOpts{
-				Namespace: namespace, Subsystem: "cnx", Name: "info", Help: "Number of connected peers",
+				Namespace: namespace, Subsystem: "cnx", Name: "info", Help: "Connected peer information",
 			}, []string{"index", "mac", "lastip", "name", "device_id"},
 		),
 		CnxRxBytes: prometheus.NewGaugeVec(
 			prometheus.GaugeOpts{
-				Namespace: namespace, Subsystem: "cnx", Name: "rx_bytes", Help: "Numbers of received bytes on the current connection",
+				Namespace: namespace, Subsystem: "cnx", Name: "rx_bytes", Help: "Received data on the current connection (in Bytes)",
 			}, []string{"index"},
 		),
 		CnxRxPackets: prometheus.NewGaugeVec(
 			prometheus.GaugeOpts{
-				Namespace: namespace, Subsystem: "cnx", Name: "rx_packets", Help: "Numbers of received packets on the current connection",
+				Namespace: namespace, Subsystem: "cnx", Name: "rx_packets", Help: "Received data on the current connection (in Bytes)",
 			}, []string{"index"},
 		),
 		CnxTxBytes: prometheus.NewGaugeVec(
 			prometheus.GaugeOpts{
-				Namespace: namespace, Subsystem: "cnx", Name: "tx_bytes", Help: "Numbers of transmitted bytes on the current connection",
+				Namespace: namespace, Subsystem: "cnx", Name: "tx_bytes", Help: "Transmitted data on the current connection (in Bytes)",
 			}, []string{"index"},
 		),
 		CnxTxPackets: prometheus.NewGaugeVec(
 			prometheus.GaugeOpts{
-				Namespace: namespace, Subsystem: "cnx", Name: "tx_packets", Help: "Numbers of transmitted packets on the current connection",
+				Namespace: namespace, Subsystem: "cnx", Name: "tx_packets", Help: "Transmitted packets on the current connection (in Bytes)",
 			}, []string{"index"},
 		),
 		CnxTxLatency: prometheus.NewGaugeVec(
 			prometheus.GaugeOpts{
-				Namespace: namespace, Subsystem: "cnx", Name: "tx_latency_ms", Help: "Transmission latency in ms for the current connection",
+				Namespace: namespace, Subsystem: "cnx", Name: "tx_latency_ms", Help: "Transmission latency on the current connection (in millisecond)",
 			}, []string{"index"},
 		),
 		CnxTxCap: prometheus.NewGaugeVec(
 			prometheus.GaugeOpts{
-				Namespace: namespace, Subsystem: "cnx", Name: "tx_capacity_bps", Help: "Airmax transmission capacity on the current connection in bit/s",
+				Namespace: namespace, Subsystem: "cnx", Name: "tx_capacity_bps", Help: "Transmission capacity on the current connection, (in bit/s, requires AirMax)",
 			}, []string{"index"},
 		),
 		CnxRxCap: prometheus.NewGaugeVec(
 			prometheus.GaugeOpts{
-				Namespace: namespace, Subsystem: "cnx", Name: "rx_capacity_bps", Help: "Airmax reception capacity in bytes on the current connection in bit/s",
+				Namespace: namespace, Subsystem: "cnx", Name: "rx_capacity_bps", Help: "Reception capacity on the current connection (in bit/s, requires AirMax)",
 			}, []string{"index"},
 		),
 
 		CnxPeerLink: prometheus.NewGaugeVec(
 			prometheus.GaugeOpts{
-				Namespace: namespace, Subsystem: "cnx", Name: "peer_link_info", Help: "Radio link status for the current connection",
+				Namespace: namespace, Subsystem: "cnx", Name: "peer_link_info", Help: "Radio link information for peer on the current connection",
 			}, []string{"index", "peer", "modulation", "coding", "multiplier", "multiplexer"},
 		),
 		CnxPeerTxPower: prometheus.NewGaugeVec(
 			prometheus.GaugeOpts{
-				Namespace: namespace, Subsystem: "cnx", Name: "peer_tx_power", Help: "Transmission power for given peer in current connection in dBm",
+				Namespace: namespace, Subsystem: "cnx", Name: "peer_tx_power", Help: "Transmission power for peer on the current connection (in dBm)",
 			}, []string{"index", "peer"},
 		),
 		CnxPeerChainSignal: prometheus.NewGaugeVec(
 			prometheus.GaugeOpts{
-				Namespace: namespace, Subsystem: "cnx", Name: "peer_chain_signal_dbm", Help: "Signal strength of the current chain in the current connection seen by given peer end in dBm",
+				Namespace: namespace, Subsystem: "cnx", Name: "peer_chain_signal_dbm", Help: "Signal strength for peer and chain on the current connection (in dBm)",
 			}, []string{"index", "peer", "chain"},
 		),
 		CnxPeerSignal: prometheus.NewGaugeVec(
 			prometheus.GaugeOpts{
-				Namespace: namespace, Subsystem: "cnx", Name: "peer_base_signal_dbm", Help: "Signal strength in the current connection seen by given peer end in dBm",
+				Namespace: namespace, Subsystem: "cnx", Name: "peer_base_signal_dbm", Help: "Signal strength for peer on the current connection (in dBm)",
 			}, []string{"index", "peer"},
 		),
 		CnxPeerNoiseF: prometheus.NewGaugeVec(
 			prometheus.GaugeOpts{
-				Namespace: namespace, Subsystem: "cnx", Name: "peer_noise_floor_dbm", Help: "Noise floor in the current connection seen by given peer end in dBm",
+				Namespace: namespace, Subsystem: "cnx", Name: "peer_noise_floor_dbm", Help: "Noise floor for peer on the current connection (in dBm)",
 			}, []string{"index", "peer"},
 		),
 		CnxPeerDistance: prometheus.NewGaugeVec(
 			prometheus.GaugeOpts{
-				Namespace: namespace, Subsystem: "cnx", Name: "peer_distance", Help: "Distance to peer the current connection",
+				Namespace: namespace, Subsystem: "cnx", Name: "peer_distance", Help: "Distance to peer on the current connection",
 			}, []string{"index", "peer"},
 		),
 
 
 		CnxPeerAmInterference: prometheus.NewGaugeVec(
 			prometheus.GaugeOpts{
-				Namespace: namespace, Subsystem: "cnx", Name: "peer_interference_dbm", Help: "Airmax interefence + Noise level in the current connection seen by given peer end in dBm",
+				Namespace: namespace, Subsystem: "cnx", Name: "peer_interference_dbm", Help: "Interference + Noise level for peer on the current connection (in dBm, requires AirMax)",
 			}, []string{"index", "peer"},
 		),
 		CnxPeerAmSignal: prometheus.NewGaugeVec(
 			prometheus.GaugeOpts{
-				Namespace: namespace, Subsystem: "cnx", Name: "peer_signal_dbm", Help: "Airmax signal strength in the current connection seen by given peer end in dBm",
+				Namespace: namespace, Subsystem: "cnx", Name: "peer_signal_dbm", Help: "Signal strength for peer on the current connection (in dBm, requires AirMax)",
 			}, []string{"index", "peer"},
 		),
 		CnxPeerAmCinr: prometheus.NewGaugeVec(
 			prometheus.GaugeOpts{
-				Namespace: namespace, Subsystem: "cnx", Name: "peer_cinr_dbm", Help: "Airmax CINR in the current connection seen by given peer end in dBm",
+				Namespace: namespace, Subsystem: "cnx", Name: "peer_cinr_dbm", Help: "Carrier to Interference + Noise Ratio (CINR) for peer on the current connection (in dBm, requires AirMax)",
 			}, []string{"index", "peer"},
 		),
 	}
