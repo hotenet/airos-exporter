@@ -333,22 +333,3 @@ func (h *handler) Update(set *metricSet, t target) {
 		return true;
 	})
 }
-
-// local chain signal to peer
-// sta.rssi = 59
-// sta.signal = -37
-// sta.chainrssi = [58, 52, 0]
-// r = signal - rssi = -37 - 59 = -96
-// for chain
-//   chain_signal = chainrssi[idx] + r = 58 + -96 = -38
-
-
-// peer chain signal to local
-// sta.remote.rssi = 61
-// sta.remote.signal = -35
-// sta.remote.chainrssi = [61, 51, 0]
-// r = signal - rssi // -35 - 61 = -96
-// for chain
-//  chain_signal = chainrssi[idx] + r // 61 + -96 = -35
-
-// format: signal (chain_rssi[0] / chain_rssi[1]) delta(|chain_rssi[0] - chain_rssi[1]|) dBm
